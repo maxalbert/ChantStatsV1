@@ -20,4 +20,4 @@ class TestWalkingSkeleton:
         page_body = self.browser.find_element_by_tag_name('body').text
 
         assert "ChantStats" in page_title
-        assert "Number of measures in piece: 14" in page_body
+        assert "Piece '01_Salus_eterna.xml': 12 measures" in page_body
