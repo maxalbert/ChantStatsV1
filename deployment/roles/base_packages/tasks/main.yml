@@ -1,0 +1,26 @@
+- name: "Add EPEL repo (provides useful extra packages for CentOS)"
+  when: ansible_os_family == "RedHat"
+  become: yes
+  become_user: root
+  yum: name={{ item }} update_cache=yes
+  with_items:
+    - epel-release
+
+- name: "Install git, tmux, ack and a few other useful packages"
+  when: ansible_os_family == "RedHat"
+  become: yes
+  become_user: root
+  yum: name={{ item }} update_cache=yes
+  with_items:
+    - ack
+    - bash-completion-extras
+    - colordiff
+    - emacs
+    - git
+    - logwatch
+    - tmux
+    - tree
+    - ufw
+    - unzip
+    - vim
+    - wget

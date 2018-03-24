@@ -1,0 +1,13 @@
+- name: "Create user 'deploy'"
+  become: yes
+  user:
+    name: deploy
+    state: present
+    groups: docker, wheel
+    password: "$6$A3ewr1MHgWCCUwUS$3k.1LP0zHw9AIHWDZ70.OMhl28EmsDZUCy60/IDCn7yopA57vznWRBETFdEn36w5hVpMlbS0OoxDqw4GCL/on1"
+
+- name: "Enable ssh access for the deploy users"
+  authorized_key:
+    user: deploy
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
