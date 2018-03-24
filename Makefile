@@ -12,4 +12,10 @@ all:
 provision:
 	$(ANSIBLE_CMD) $(ANSIBLE_OPTIONS) -i $(CHANTSTATS_DEPLOYMENT_SERVER), --user $(CHANTSTATS_PROVISIONING_USER) deployment/provision.yml
 
-.PHONY: all provision
+deploy:
+	$(ANSIBLE_CMD) $(ANSIBLE_OPTIONS) -i $(CHANTSTATS_DEPLOYMENT_SERVER), --user $(CHANTSTATS_PROVISIONING_USER) deployment/deploy.yml
+
+provision-and-deploy:
+	$(ANSIBLE_CMD) $(ANSIBLE_OPTIONS) -i $(CHANTSTATS_DEPLOYMENT_SERVER), --user $(CHANTSTATS_PROVISIONING_USER) deployment/provision_and_deploy.yml
+
+.PHONY: all provision deploy provision-and-deploy

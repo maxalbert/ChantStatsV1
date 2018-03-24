@@ -1,7 +1,5 @@
 ---
 - hosts: all
-  vars_files:
-    - config.yml
   roles:
     - base_packages
     - docker

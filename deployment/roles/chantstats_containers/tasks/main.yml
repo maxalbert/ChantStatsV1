@@ -1,0 +1,25 @@
+- name: Ensure Chantstats root folder and shared folders exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0777
+    owner: "{{ ansible_user }}"
+  with_items:
+    - "{{ CHANTSTATS_DIR }}"
+    - "{{ CHANTSTATS_DIR }}/shared"
+    - "{{ CHANTSTATS_DIR }}/shared/logs/nginx"
+  become: yes
+
+- name: Copy docker-compose file and associated .env file to host
+  copy:
+    src: "{{ item }}"
+    dest: "{{ CHANTSTATS_DIR }}"
+  with_items:
+    - "{{ playbook_dir }}/docker-compose.yml"
+    - "{{ playbook_dir }}/.env"
+
+- name: Create containers for BI Tool from docker-compose file
+  docker_service:
+    project_src: "{{ CHANTSTATS_DIR }}"
+    state: present
+    pull: yes
