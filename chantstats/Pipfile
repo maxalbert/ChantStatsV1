@@ -6,6 +6,7 @@ verify_ssl = true
 [packages]
 Flask = "*"
 gunicorn = "*"
+"music21" = "*"
 
 [dev-packages]
 pytest = "*"

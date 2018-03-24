@@ -3,7 +3,10 @@ PYTEST_OPTIONS ?= -svx
 
 all: test
 
-test: acceptance-tests
+test: unit-tests acceptance-tests
+
+unit-tests:
+	$(PYTEST_CMD) $(PYTEST_OPTIONS) tests/unit_tests/
 
 acceptance-tests:
 	$(PYTEST_CMD) $(PYTEST_OPTIONS) tests/acceptance_tests/
@@ -11,4 +14,4 @@ acceptance-tests:
 build-docker-image:
 	docker build -t maxalbert/chantstats:frontend .
 
-.PHONY: all test acceptance_tests build-docker-image
+.PHONY: all test unit-tests acceptance_tests build-docker-image
