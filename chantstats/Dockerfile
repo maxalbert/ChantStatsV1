@@ -15,6 +15,7 @@ RUN pipenv install --three
 #
 COPY MANIFEST.in README.md setup.cfg setup.py versioneer.py /pkg/
 COPY chantstats /pkg/chantstats
+COPY sample_data /pkg/sample_data
 RUN pipenv run python setup.py bdist_wheel
 
 #
