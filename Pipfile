@@ -4,15 +4,15 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 
 [packages]
-flask = "*"
+Flask = "*"
 
 [dev-packages]
 pytest = "*"
 selenium = "*"
-chromedriver-binary = "*"
 ansible = "*"
 ipdb = "*"
 docker-compose = "*"
+versioneer = "*"
 
 [requires]
 python_version = "3.6"
