@@ -1,4 +1,4 @@
-PYTEST ?= pytest
+PYTEST ?= pipenv run pytest
 PYTEST_OPTIONS ?= -svx
 
 

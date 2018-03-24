@@ -1,0 +1,15 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+
+[packages]
+flask = "*"
+
+[dev-packages]
+pytest = "*"
+selenium = "*"
+chromedriver-binary = "*"
+
+[requires]
+python_version = "3.6"
