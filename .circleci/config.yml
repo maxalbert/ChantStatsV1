@@ -1,35 +1,47 @@
 version: 2
 jobs:
   build:
+
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
+
     environment:
       - FLASK_APP=chantstats/chantstats_webapp.py
+
     steps:
       - checkout
-      - run: mkdir test-reports
+
       - run:
           name: Download Selenium
           command: |
             curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+
       - run:
           name: Start Selenium
           command: |
             java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true
 
-      - run: sudo pip install pipenv
-      - run: cd ~/project/chantstats && pipenv --three install --dev
+      - run:
+          name: Install pipenv
+          command: sudo pip install pipenv
+
+      - run:
+          name: Create pipenv environment with required dependencies
+          command: cd ~/project/chantstats && pipenv --three install --dev
 
       - run:
           name: Start Flask webserver
-          command: cd ~/project/chantstats && pipenv run flask run
+          command: pipenv run flask run
+          working_directory: ~/project/chantstats
           background: true
 
       - run:
           name: Run unit tests
-          command: cd ~/project/chantstats && pipenv run pytest -svx tests/unit_tests/
+          command: pipenv run pytest -svx tests/unit_tests/
+          working_directory: ~/project/chantstats
 
       - run:
           name: Run acceptance tests
-          command: cd ~/project/chantstats && pipenv run pytest -svx tests/acceptance_tests/
+          command: pipenv run pytest -svx tests/acceptance_tests/
+          working_directory: ~/project/chantstats
