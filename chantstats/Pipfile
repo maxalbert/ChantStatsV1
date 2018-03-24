@@ -15,6 +15,7 @@ ipdb = "*"
 versioneer = "*"
 ipython = "*"
 wheel = "*"
+chromedriver-binary = "*"
 
 [requires]
 python_version = "3.6"

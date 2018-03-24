@@ -8,7 +8,10 @@ PORT = os.environ.get('CHANTSTATS_PORT', 5000)
 class TestWalkingSkeleton:
 
     def setup_class(self):
-        self.browser = webdriver.Firefox()
+        try:
+            self.browser = webdriver.Firefox()
+        except:
+            self.browser = webdriver.Chrome()
 
     def teardown_class(self):
         self.browser.quit()
