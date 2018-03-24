@@ -13,6 +13,7 @@ ansible = "*"
 ipdb = "*"
 docker-compose = "*"
 versioneer = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.6"
