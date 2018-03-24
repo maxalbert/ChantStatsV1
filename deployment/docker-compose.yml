@@ -1,0 +1,21 @@
+#
+# DOCKER COMPOSE FOR CHANTSTATS
+#
+
+version: '2.3'
+
+services:
+
+  nginx-gateway:
+    container_name: 'chantstats-nginx-gateway'
+    image: maxalbert/chantstats:nginx-gateway
+    volumes:
+      - type: bind
+        source: "./shared"
+        target: /shared
+    ports:
+      - "${CHANTSTATS_NGINX_GATEWAY_PORT}:80"
+    tty: true
+    stdin_open: true
+    privileged: false
+    restart: always

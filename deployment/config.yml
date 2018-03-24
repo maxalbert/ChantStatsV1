@@ -1,0 +1,9 @@
+# The directory CHANTSTATS_DIR will be used to store
+# files and folders relevant to ChantStats on the
+# the deployment server.
+#
+# For example, it will contain the docker-compose file
+# used to spin up the various containers, and also contains
+# a folder which is shared with containers and where e.g.
+# log files can be stored.
+CHANTSTATS_DIR: /opt/chantstats/
