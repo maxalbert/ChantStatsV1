@@ -1,3 +1,5 @@
+from .app import app
+
 # Version management provided by versioneer (https://github.com/warner/python-versioneer)
 from ._version import get_versions
 __version__ = get_versions()['version']

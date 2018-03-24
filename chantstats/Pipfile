@@ -5,6 +5,7 @@ verify_ssl = true
 
 [packages]
 Flask = "*"
+gunicorn = "*"
 
 [dev-packages]
 pytest = "*"

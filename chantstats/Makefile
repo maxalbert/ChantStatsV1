@@ -8,4 +8,7 @@ test: acceptance-tests
 acceptance-tests:
 	$(PYTEST_CMD) $(PYTEST_OPTIONS) tests/acceptance_tests/
 
-.PHONY: all test acceptance_tests
+build-docker-image:
+	docker build -t maxalbert/chantstats:frontend .
+
+.PHONY: all test acceptance_tests build-docker-image

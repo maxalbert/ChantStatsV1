@@ -19,3 +19,11 @@ services:
     stdin_open: true
     privileged: false
     restart: always
+
+  frontend:
+    container_name: 'chantstats-frontend'
+    image: maxalbert/chantstats:frontend
+    tty: true
+    stdin_open: true
+    privileged: false
+    restart: always

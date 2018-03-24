@@ -1,0 +1,11 @@
+#
+# DOCKER COMPOSE FOR CHANTSTATS (OVERRIDE FILE FOR DEVELOPMENT)
+#
+
+version: '2.3'
+
+services:
+
+  frontend:
+    ports:
+      - "${CHANTSTATS_FRONTEND_PORT}:80"

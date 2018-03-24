@@ -29,7 +29,7 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     packages=find_packages(),
-    install_requires=['flask'],
+    install_requires=['flask', 'gunicorn'],
     extras_require={
         'dev': [],
         'test': ['pytest'],
