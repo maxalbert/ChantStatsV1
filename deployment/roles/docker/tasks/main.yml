@@ -98,9 +98,10 @@
 # Install 'docker' python module (mainly to make it available for Ansible)
 #
 # Notes:
-#   - Do *not* install the legacy module 'docker-py', but install the 'docker' python module instead.
-#     Otherwise things will break (see https://github.com/docker/docker-py/issues/1353)
-#   - Ansible breaks with docker >= 3.0.0, so we install the slightly older version 2.7.0
+#   - Only install the 'docker' python module, *not* install the legacy module 'docker-py',
+#     or else things will break (see https://github.com/docker/docker-py/issues/1353)
+#   - We install the slightly older version 2.7.0 because Ansible breaks with docker >= 3.0.0.
+#     Note that this also requires docker-compose <= 1.19.0 (otherwise it throws a runtime error).
 #
 
 - name: "Install docker python module"
