@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
+    working_directory: ~/project/chantstats
     environment:
       - FLASK_APP=chantstats/chantstats_webapp.py
     steps:
