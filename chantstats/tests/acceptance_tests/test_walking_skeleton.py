@@ -5,7 +5,7 @@ SERVER = os.environ.get('CHANTSTATS_SERVER', 'localhost')
 PORT = os.environ.get('CHANTSTATS_PORT', 5000)
 
 
-class TestSmokeTest:
+class TestWalkingSkeleton:
 
     def setup_class(self):
         self.browser = webdriver.Firefox()
