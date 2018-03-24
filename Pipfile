@@ -12,6 +12,7 @@ selenium = "*"
 chromedriver-binary = "*"
 ansible = "*"
 ipdb = "*"
+docker-compose = "*"
 
 [requires]
 python_version = "3.6"
