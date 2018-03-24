@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
-    working_directory: ~/project/chantstats
     environment:
       - FLASK_APP=chantstats/chantstats_webapp.py
     steps:
@@ -20,8 +19,8 @@ jobs:
           background: true
 
       - run: sudo pip install pipenv
-      - run: pipenv --three install --dev
+      - run: cd ~/project/chantstats && pipenv --three install --dev
 
-      - run: pipenv run flask run
-      - run: pipenv run pytest -svx tests/unit_tests/
-      - run: pipenv run pytest -svx tests/acceptance_tests/
+      - run: cd ~/project/chantstats && pipenv run flask run
+      - run: cd ~/project/chantstats && pipenv run pytest -svx tests/unit_tests/
+      - run: cd ~/project/chantstats && pipenv run pytest -svx tests/acceptance_tests/
