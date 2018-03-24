@@ -21,6 +21,15 @@ jobs:
       - run: sudo pip install pipenv
       - run: cd ~/project/chantstats && pipenv --three install --dev
 
-      - run: cd ~/project/chantstats && pipenv run flask run
-      - run: cd ~/project/chantstats && pipenv run pytest -svx tests/unit_tests/
-      - run: cd ~/project/chantstats && pipenv run pytest -svx tests/acceptance_tests/
+      - run:
+          name: Start Flask webserver
+          command: cd ~/project/chantstats && pipenv run flask run
+          background: true
+
+      - run:
+          name: Run unit tests
+          command: cd ~/project/chantstats && pipenv run pytest -svx tests/unit_tests/
+
+      - run:
+          name: Run acceptance tests
+          command: cd ~/project/chantstats && pipenv run pytest -svx tests/acceptance_tests/
