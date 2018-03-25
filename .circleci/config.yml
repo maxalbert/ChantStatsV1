@@ -7,9 +7,16 @@ jobs:
 
     environment:
       - FLASK_APP=chantstats/chantstats_webapp.py
+      - NVM_DIR=$HOME/.nvms
 
     steps:
       - checkout
+
+      - run:
+          name: Install npm
+          command: |
+            curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+            sudo apt-get install -y nodejs
 
       - run:
           name: Download Selenium
@@ -28,7 +35,13 @@ jobs:
 
       - run:
           name: Create pipenv environment with required dependencies
-          command: cd ~/project/chantstats && pipenv --three install --dev
+          command: pipenv --three install --dev
+          working_directory: ~/project/chantstats
+
+      - run:
+          name: Create bundle.js
+          command: npm run build
+          working_directory: ~/project/chantstats/chantstats/static
 
       - run:
           name: Start Flask webserver
