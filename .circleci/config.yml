@@ -40,7 +40,7 @@ jobs:
 
       - run:
           name: Create bundle.js
-          command: npm run build
+          command: npm install && npm run build
           working_directory: ~/project/chantstats/chantstats/static
 
       - run:
