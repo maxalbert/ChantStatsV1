@@ -1,4 +1,6 @@
 .pytest_cache
 __pycache__
 geckodriver.log
+node_modules
+bundle.js
 deployment/shared/*
