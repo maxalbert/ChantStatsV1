@@ -4,10 +4,10 @@ const config = {
     entry: __dirname + '/js/index.jsx',
     output: {
         path: __dirname + '/dist',
-        filename: 'bundel.js',
+        filename: 'bundle.js',
     },
     resolve: {
-        extension: ['.js', '.jsx', '.css']
+        extensions: ['.js', '.jsx', '.css']
     }
 };
 module.exports = config;
