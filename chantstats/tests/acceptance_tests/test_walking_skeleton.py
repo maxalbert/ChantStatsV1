@@ -1,5 +1,10 @@
 import os
 from selenium import webdriver
+try:
+    import chromedriver_binary
+except ImportError:
+    # Chrome not installed
+    pass
 
 SERVER = os.environ.get('CHANTSTATS_SERVER', 'localhost')
 PORT = os.environ.get('CHANTSTATS_PORT', 5000)
