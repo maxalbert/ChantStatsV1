@@ -17,6 +17,13 @@ COPY MANIFEST.in README.md setup.cfg setup.py versioneer.py /pkg/
 COPY chantstats /pkg/chantstats
 COPY sample_data /pkg/sample_data
 
+# Build bundle.js
+RUN curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && \
+    apt-get install -y nodejs && \
+    cd /pkg/chantstats/chantstats/static && \
+    npm install && \
+    npm run build
+
 #
 # Run chantstats app
 #
