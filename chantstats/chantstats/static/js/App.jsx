@@ -1,7 +1,7 @@
 import React from "react";
 import PieceInfo from "./PieceInfo.jsx";
 import FreqBarChart from "./FreqBarChart.jsx";
-import ChantSelect from "./ChantSelect.jsx";
+import ChantMultiSelect from "./ChantMultiSelect.jsx";
 
 
 export default class App extends React.Component {
@@ -13,7 +13,7 @@ export default class App extends React.Component {
             <table cellPadding="20">
             <tbody>
               <tr>
-                <td valing="top"><ChantSelect /></td>
+                <td valing="top"><ChantMultiSelect /></td>
                 <td valing="top"><FreqBarChart label="PC Frequencies" /></td>
               </tr>
             </tbody>
