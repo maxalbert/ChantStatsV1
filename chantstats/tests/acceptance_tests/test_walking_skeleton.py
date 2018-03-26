@@ -6,7 +6,7 @@ except ImportError:
     # Chrome not installed
     pass
 
-SERVER = os.environ.get('CHANTSTATS_SERVER', 'localhost')
+SERVER = os.environ.get('CHANTSTATS_SERVER', '127.0.0.1')
 PORT = os.environ.get('CHANTSTATS_PORT', 5000)
 
 
