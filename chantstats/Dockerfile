@@ -1,6 +1,8 @@
-FROM python:3.6.4-alpine3.7
+FROM node:9.9-alpine
 
-RUN apk update && apk add bash
+RUN apk add --update bash python3 && \
+    ln -s /usr/bin/python3 /usr/local/bin/python && \
+    ln -s /usr/bin/pip3 /usr/local/bin/pip
 
 #
 # Create pipenv environment
@@ -18,9 +20,7 @@ COPY chantstats /pkg/chantstats
 COPY sample_data /pkg/sample_data
 
 # Build bundle.js
-RUN curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && \
-    apt-get install -y nodejs && \
-    cd /pkg/chantstats/chantstats/static && \
+RUN cd /pkg/chantstats/static && \
     npm install && \
     npm run build
 
