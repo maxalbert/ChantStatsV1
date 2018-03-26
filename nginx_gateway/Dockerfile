@@ -1,7 +1,8 @@
 FROM nginx:alpine
 LABEL maintainer="Maximilian Albert <maximilian.albert@gmail.com>"
 
-RUN rm /etc/nginx/conf.d/default.conf && \
+RUN apk add --update bash vim && \
+    rm /etc/nginx/conf.d/default.conf && \
     rm /var/log/nginx/access.log && \
     rm /var/log/nginx/error.log && \
     ln -s /shared/logs/nginx/access.log /var/log/nginx/access.log && \
